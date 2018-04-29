@@ -37,6 +37,23 @@ class Ship{
         this.vel.add(this.acc);
         this.pos.add(this.vel);
         this.acc.mult(0);
+        edges();
+    }
+    
+    void edges(){
+        float x = this.pos.x;
+        float y = this.pos.y;
+        if (x < -this.size){
+            this.pos.x = width + this.size;
+        }else if (x > width + this.size){
+            this.pos.x = -this.size;
+        }
+        
+        if (y < -this.size){
+            this.pos.y = height + this.size;
+        }else if (y > height + this.size){
+            this.pos.y = -this.size;
+        }
     }
     
     void show(){
