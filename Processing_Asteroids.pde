@@ -1,8 +1,10 @@
 Ship player;
+Asteroid asteroid;
 
 void setup(){
     size(400, 400);
     player = new Ship(width / 2, height / 2, 20);
+    asteroid = new Asteroid(width / 4, height / 4, 50);
 }
 
 void draw(){
@@ -19,5 +21,8 @@ void draw(){
     }
     
     player.update();
+    asteroid.update();
+    
     player.show();
+    asteroid.show();
 }
