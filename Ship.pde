@@ -1,5 +1,7 @@
 class Ship{
     
+    static final float TURNING_SPEED = 0.1;
+    
     PVector pos, vel, acc;
     float heading;
     int size;
@@ -10,6 +12,21 @@ class Ship{
         this.acc = new PVector();
         this.heading = 0;
         this.size = size;
+    }
+    
+    // positive is cw, negative is ccw
+    void turn(int direction){
+        if (direction > 0){
+            this.heading += TURNING_SPEED;
+        }else if (direction < 0){
+            this.heading += -TURNING_SPEED;
+        }
+    }
+    
+    void thrust(){
+        PVector force = new PVector(cos(this.heading), sin(this.heading));
+        force.mult(0.1);
+        this.applyForce(force);
     }
     
     void applyForce(PVector force){
@@ -23,7 +40,6 @@ class Ship{
     }
     
     void show(){
-        
         noFill();
         stroke(255);
         
