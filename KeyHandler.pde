@@ -1,5 +1,5 @@
 // [UP, LEFT, RIGHT]
-boolean upIsDown, leftIsDown, rightIsDown;
+boolean upIsDown, leftIsDown, rightIsDown, spaceIsDown;
 
 void keyPressed(){
     if (keyCode == UP){
@@ -8,6 +8,8 @@ void keyPressed(){
         leftIsDown = true;
     }else if (keyCode == RIGHT){
         rightIsDown = true;
+    }else if (key == ' '){
+        spaceIsDown = true;
     }
 }
 
@@ -18,5 +20,7 @@ void keyReleased(){
         leftIsDown = false;
     }else if (keyCode == RIGHT){
         rightIsDown = false;
+    }else if (key == ' '){
+        spaceIsDown = false;
     }
 }

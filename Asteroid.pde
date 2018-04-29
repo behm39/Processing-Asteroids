@@ -1,5 +1,5 @@
 class Asteroid {
-    
+
     PVector pos, vel, acc;
     int size;
     PShape shape;
@@ -40,7 +40,11 @@ class Asteroid {
     void show() {
         pushMatrix();
         translate(this.pos.x, this.pos.y);
+        fill(0);
+        noStroke();
+        ellipse(0, 0, this.size * 2, this.size * 2);
         shape(this.shape);
+
         popMatrix();
     }
 }

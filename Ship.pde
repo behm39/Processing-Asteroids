@@ -1,10 +1,12 @@
 class Ship{
     
     static final float TURNING_SPEED = 0.1;
+    static final int COOLDOWN = 30; // in ticks
     
     PVector pos, vel, acc;
     float heading;
     int size;
+    int lastShotTime;
     
     Ship(int x, int y, int size){
         this.pos = new PVector(x, y);
@@ -12,6 +14,7 @@ class Ship{
         this.acc = new PVector();
         this.heading = 0;
         this.size = size;
+        this.lastShotTime = 0;
     }
     
     // positive is cw, negative is ccw
@@ -57,7 +60,7 @@ class Ship{
     }
     
     void show(){
-        noFill();
+        fill(0);
         stroke(255);
         
         pushMatrix();
