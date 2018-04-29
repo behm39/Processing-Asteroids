@@ -14,10 +14,10 @@ class Asteroid {
         int corners = floor(random(8, 12));
         this.shape = createShape();
         this.shape.beginShape();
-        int smoothness = 2; // maybe make global constant
+        int SMOOTHNESS = 2; // maybe make global constant
         for (float i = 0; i < corners; i++) {
             float a = i * (TWO_PI / corners);
-            float r = this.size + random(-this.size / smoothness, this.size / smoothness);
+            float r = this.size + random(-this.size / SMOOTHNESS, this.size / SMOOTHNESS);
             float xx = r * cos(a);
             float yy = r * sin(a);
             this.shape.vertex(xx, yy);
